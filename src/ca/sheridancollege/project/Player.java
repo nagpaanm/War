@@ -8,10 +8,14 @@ package ca.sheridancollege.project;
 /**
  * A class that models each Player in the game. Players have an identifier, which should be unique.
  * @author dancye, 2018
+ * @modifier: Anmol Nagpal
+ * @date: April 19th, 2019
  */
 public abstract class Player 
 {
     private String playerID; //the unique ID for this player
+    private Card card;
+    private int score;
     
     /**
      * A constructor that allows you to set the player's unique ID
@@ -22,12 +26,28 @@ public abstract class Player
         playerID= name;
     }
     
+    
+    public void setCard(Card card){
+        this.card = card;
+    }
     /**
      * @return the playerID
      */
+    
+    public Card getCard(){
+        return this.card;
+    }
     public String getPlayerID() 
     {
         return playerID;
+    }
+    
+    public void setScore(){
+        this.score++;
+    }
+    
+    public int getScore(){
+        return this.score;
     }
 
     /**
