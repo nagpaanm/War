@@ -74,6 +74,53 @@ public class GroupOfCardsTest {
         assertEquals(expResult, result);
     }
     
+    @Test
+    public void testCompareCardsGood() {
+        System.out.println("Compare score when p1 has a higher card then p2");
+        Player one = new User("Anmol");
+        Player two = new User("Ujjwal");
+        StandardCard c1 = new StandardCard("K");
+        StandardCard c2 = new StandardCard("A");
+        one.setCard(c1);
+        two.setCard(c2);
+        GroupOfCards goc = new GroupOfCards(52);
+        goc.compareCards(one, two);
+        int expResult = 1;
+        int result = one.getScore();
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testCompareCardsBad() {
+        System.out.println("Compare score when p1 and p2 don't have any cards");
+        Player one = new User("Anmol");
+        Player two = new User("Ujjwal");
+        GroupOfCards goc = new GroupOfCards(52);
+        //goc.compareCards(one, two);
+        /*
+        int expResult = 0;
+        int result = one.getScore();
+        assertEquals(expResult, result);
+        */
+        //As expected, this will cause an error!
+    }
+    
+    @Test
+    public void testCompareCardsBoundary() {
+        System.out.println("Compare score when p1 and p2 draw the same card");
+        Player one = new User("Anmol");
+        Player two = new User("Ujjwal");
+        StandardCard c1 = new StandardCard("J");
+        StandardCard c2 = new StandardCard("J");
+        one.setCard(c1);
+        two.setCard(c2);
+        GroupOfCards goc = new GroupOfCards(52);
+        goc.compareCards(one, two);
+        int expResult = 0;
+        int result = one.getScore();
+        assertEquals(expResult, result);
+    }
+    
 
     /**
      * Test of RemoveCard method, of class GroupOfCards.
