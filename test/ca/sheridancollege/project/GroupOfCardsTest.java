@@ -160,4 +160,49 @@ public class GroupOfCardsTest {
         assertEquals(expResult, result);
     }
     
+    @Test
+    public void testShuffle(){
+        System.out.println("Shuffle deck");
+        GroupOfCards instance = new GroupOfCards(52);
+        StandardCard c1 = new StandardCard("5");
+        StandardCard c2 = new StandardCard("A");
+        StandardCard c3 = new StandardCard("9");
+        StandardCard c4 = new StandardCard("Q");
+        StandardCard c5 = new StandardCard("2");
+        StandardCard c6 = new StandardCard("3");
+        StandardCard c7 = new StandardCard("4");
+        StandardCard c8 = new StandardCard("6");
+        StandardCard c9 = new StandardCard("7");
+        StandardCard c10 = new StandardCard("8");
+        StandardCard c11 = new StandardCard("10");
+        instance.addCard(c1);
+        instance.addCard(c2);
+        instance.addCard(c3);
+        instance.addCard(c4);
+        instance.addCard(c5);
+        instance.addCard(c6);
+        instance.addCard(c7);
+        instance.addCard(c8);
+        instance.addCard(c9);
+        instance.addCard(c10);
+        instance.shuffle();
+        boolean expResult = true;
+        boolean result = true;
+        if(instance.RemoveCard().toString().equals("5") &&
+                instance.RemoveCard().toString().equals("A") &&
+                instance.RemoveCard().toString().equals("9") &&
+                instance.RemoveCard().toString().equals("Q") &&
+                instance.RemoveCard().toString().equals("2") &&
+                instance.RemoveCard().toString().equals("3") &&
+                instance.RemoveCard().toString().equals("4") &&
+                instance.RemoveCard().toString().equals("6") &&
+                instance.RemoveCard().toString().equals("7") &&
+                instance.RemoveCard().toString().equals("8") &&
+                instance.RemoveCard().toString().equals("10")){
+            result = false;
+        }
+        assertEquals(expResult, result);
+        
+    }
+    
 }
